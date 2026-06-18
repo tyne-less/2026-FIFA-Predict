@@ -1,23 +1,28 @@
+from pathlib import Path
 import pandas as pd
 
+# 使用基于项目根目录的绝对路径，确保在不同的启动路径及 Streamlit Cloud 部署环境下都能正确找到数据文件
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = PROJECT_ROOT / "data"
 
-def load_groups(path: str = "data/groups.csv") -> pd.DataFrame:
+
+def load_groups(path: str | Path = DATA_DIR / "groups.csv") -> pd.DataFrame:
     return pd.read_csv(path)
 
 
-def load_matches(path: str = "data/matches.csv") -> pd.DataFrame:
+def load_matches(path: str | Path = DATA_DIR / "matches.csv") -> pd.DataFrame:
     df = pd.read_csv(path, dtype={"match_id": str})
     _validate_matches(df)
     return df
 
 
-def load_match_probabilities(path: str = "data/match_probabilities.csv") -> pd.DataFrame:
+def load_match_probabilities(path: str | Path = DATA_DIR / "match_probabilities.csv") -> pd.DataFrame:
     df = pd.read_csv(path, dtype={"match_id": str})
     _validate_probabilities(df)
     return df
 
 
-def load_odds(path: str = "data/odds.csv") -> pd.DataFrame:
+def load_odds(path: str | Path = DATA_DIR / "odds.csv") -> pd.DataFrame:
     df = pd.read_csv(path, dtype={"match_id": str})
     _validate_odds(df)
     return df
