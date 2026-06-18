@@ -73,6 +73,24 @@ def build_manual_match_from_local(match_row: dict, league: str = "世界杯") ->
     }
 
 
-def get_scheduled_matches_for_group(matches_df: pd.DataFrame, group: str) -> list[dict]:
-    scheduled = matches_df[(matches_df["group"] == group) & (matches_df["status"] == "scheduled")]
-    return scheduled.to_dict(orient="records")
+def get_scheduled_matches_for_group(matches_df, group: str) -> list[dict]:
+    """
+    Return scheduled matches for a given group from matches_df.
+    matches_df has columns:
+    match_id, group, home, away, home_score, away_score, status
+    """
+    group_matches = matches_df[
+        (matches_df["group"] == group) &
+        (matches_df["status"] == "scheduled")
+    ].copy()
+
+    records = []
+    for _, row in group_matches.iterrows():
+        records.append({
+            "match_id": row["match_id"],
+            "group": row["group"],
+            "home": row["home"],
+            "away": row["away"],
+            "status": row["status"],
+        })
+    return records
