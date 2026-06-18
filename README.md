@@ -4,6 +4,16 @@ Python MVP for analyzing World Cup group-stage betting markets.
 
 The app combines decimal odds conversion, no-vig market probabilities, model probabilities, expected value, current group tables, scenario simulation, qualification swing analysis, and a structured Chinese match report. It is an analysis assistant only and does not guarantee betting outcomes.
 
+## 数据与赔率说明 (v0.9)
+
+1. **A–L 小组示例数据**：目前 `data/*.csv` 已经补全了 2026 世界杯 A–L 共 12 个小组（48 支球队，每个小组 6 场比赛，共 72 场比赛）的示例赛程、已完赛比分及后续赛程。
+2. **赔率与模型概率为示例数据**：
+   - `data/odds.csv` 中的赔率和 `data/match_probabilities.csv` 中的模型概率均为**合理估算的示例数据 (sample data)**，并不代表中国体育彩票官方实时赔率，亦不代表真实赛事模型的真实概率。
+3. **真实赔率分析方式**：
+   - 若要对真实比赛进行精确分析，建议在 Web 界面中的数据源下拉菜单中选择 **“手动输入赔率”** 模式，并手动录入体育彩票官方或小程序上的临场实时赔率与模型概率。
+4. **出线情景模拟依据**：
+   - “出线情景分析”模块的计算结果是基于本地 `data/matches.csv` 中记录的已完赛比分、未完赛赛程，并结合 `data/match_probabilities.csv` 中的示例模型概率，通过 1000 次蒙特卡洛模拟计算得出的。
+
 ## Setup
 
 ```bash

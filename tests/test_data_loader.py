@@ -199,3 +199,60 @@ def test_validate_tournament_data_rejects_unknown_team():
 
     with pytest.raises(ValueError, match="unknown team"):
         validate_tournament_data(groups_df, matches_df, probabilities_df, odds_df)
+
+
+def test_data_integrity_for_all_groups():
+    groups_df = load_groups()
+    matches_df = load_matches()
+    probabilities_df = load_match_probabilities()
+    odds_df = load_odds()
+
+    # 1. 确认 groups.csv 包含 A–L 共 12 个小组。
+    groups = groups_df["group"].dropna().unique().tolist()
+    expected_groups = [chr(i) for i in range(ord('A'), ord('L') + 1)]
+    assert sorted(groups) == expected_groups
+
+    # 2. 确认每个小组有 4 支球队。
+    for g in expected_groups:
+        teams = groups_df[groups_df["group"] == g]["team"].tolist()
+        assert len(teams) == 4, f"Group {g} must have 4 teams"
+
+    # 3. 确认每个小组有 6 场比赛。
+    for g in expected_groups:
+        matches = matches_df[matches_df["group"] == g]
+        assert len(matches) == 6, f"Group {g} must have 6 matches"
+
+    # 4. 确认每个 scheduled match 都有 match_probabilities.csv 行。
+    scheduled_matches = matches_df[matches_df["status"] == "scheduled"]
+    scheduled_ids = scheduled_matches["match_id"].tolist()
+    prob_ids = probabilities_df["match_id"].tolist()
+
+    for mid in scheduled_ids:
+        assert mid in prob_ids, f"Scheduled match {mid} must have a row in match_probabilities.csv"
+
+    # 5. 确认所有 normal probabilities 合计约等于 1.0。
+    for row in probabilities_df.itertuples(index=False):
+        total = float(row.p_home) + float(row.p_draw) + float(row.p_away)
+        assert abs(total - 1.0) < 0.01, f"Match {row.match_id} normal probabilities sum must be 1.0"
+
+    # 6. 如果 handicap probabilities 存在，确认三项合计约等于 1.0。
+    if "p_handicap_home" in probabilities_df.columns:
+        for _, row in probabilities_df.iterrows():
+            if pd.notna(row["p_handicap_home"]) and pd.notna(row["p_handicap_draw"]) and pd.notna(row["p_handicap_away"]):
+                total = float(row["p_handicap_home"]) + float(row["p_handicap_draw"]) + float(row["p_handicap_away"])
+                assert abs(total - 1.0) < 0.01, f"Match {row['match_id']} handicap probabilities sum must be 1.0"
+
+    # 7. 确认 odds.csv 中所有非空赔率都 > 1.0。
+    for _, row in odds_df.iterrows():
+        for col in ["home_odds", "draw_odds", "away_odds"]:
+            if pd.notna(row[col]):
+                assert float(row[col]) > 1.0, f"Match {row['match_id']} {col} must be > 1.0"
+        for col in ["handicap_home_odds", "handicap_draw_odds", "handicap_away_odds"]:
+            if pd.notna(row[col]):
+                assert float(row[col]) > 1.0, f"Match {row['match_id']} {col} must be > 1.0"
+
+    # 8. 确认 handicap 是整数或空值。
+    for _, row in odds_df.iterrows():
+        if pd.notna(row["handicap"]):
+            val = row["handicap"]
+            assert int(val) == val, f"Match {row['match_id']} handicap must be an integer"

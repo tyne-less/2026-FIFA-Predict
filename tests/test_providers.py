@@ -17,7 +17,7 @@ def test_csv_provider_returns_existing_odds_format():
 
     assert odds["match_id"] == "F3"
     assert odds["normal"]["available"] is True
-    assert odds["normal"]["home_odds"] == 2.0
+    assert odds["normal"]["home_odds"] == 1.35
     assert odds["handicap"]["available"] is True
     assert odds["handicap"]["handicap"] == -1
 

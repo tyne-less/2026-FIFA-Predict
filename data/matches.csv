@@ -1,7 +1,73 @@
 match_id,group,home,away,home_score,away_score,status
+A1,A,Mexico,South Africa,2,0,completed
+A2,A,South Korea,Czechia,2,1,completed
+A3,A,Czechia,South Africa,,,scheduled
+A4,A,Mexico,South Korea,,,scheduled
+A5,A,Czechia,Mexico,,,scheduled
+A6,A,South Africa,South Korea,,,scheduled
+B1,B,Canada,Bosnia and Herzegovina,1,1,completed
+B2,B,Qatar,Switzerland,1,1,completed
+B3,B,Switzerland,Bosnia and Herzegovina,,,scheduled
+B4,B,Canada,Qatar,,,scheduled
+B5,B,Switzerland,Canada,,,scheduled
+B6,B,Bosnia and Herzegovina,Qatar,,,scheduled
+C1,C,Brazil,Morocco,1,1,completed
+C2,C,Haiti,Scotland,0,1,completed
+C3,C,Scotland,Morocco,,,scheduled
+C4,C,Brazil,Haiti,,,scheduled
+C5,C,Scotland,Brazil,,,scheduled
+C6,C,Morocco,Haiti,,,scheduled
+D1,D,United States,Paraguay,4,1,completed
+D2,D,Australia,Turkey,2,0,completed
+D3,D,United States,Australia,,,scheduled
+D4,D,Turkey,Paraguay,,,scheduled
+D5,D,Turkey,United States,,,scheduled
+D6,D,Paraguay,Australia,,,scheduled
+E1,E,Germany,Curacao,7,1,completed
+E2,E,Ivory Coast,Ecuador,1,0,completed
+E3,E,Germany,Ivory Coast,,,scheduled
+E4,E,Ecuador,Curacao,,,scheduled
+E5,E,Ecuador,Germany,,,scheduled
+E6,E,Curacao,Ivory Coast,,,scheduled
 F1,F,Netherlands,Japan,2,2,completed
 F2,F,Sweden,Tunisia,5,1,completed
 F3,F,Netherlands,Sweden,,,scheduled
 F4,F,Tunisia,Japan,,,scheduled
 F5,F,Tunisia,Netherlands,,,scheduled
 F6,F,Japan,Sweden,,,scheduled
+G1,G,Belgium,Egypt,1,1,completed
+G2,G,Iran,New Zealand,2,2,completed
+G3,G,Belgium,Iran,,,scheduled
+G4,G,New Zealand,Egypt,,,scheduled
+G5,G,New Zealand,Belgium,,,scheduled
+G6,G,Egypt,Iran,,,scheduled
+H1,H,Spain,Cape Verde,0,0,completed
+H2,H,Saudi Arabia,Uruguay,1,1,completed
+H3,H,Spain,Saudi Arabia,,,scheduled
+H4,H,Uruguay,Cape Verde,,,scheduled
+H5,H,Uruguay,Spain,,,scheduled
+H6,H,Cape Verde,Saudi Arabia,,,scheduled
+I1,I,France,Senegal,3,1,completed
+I2,I,Iraq,Norway,1,4,completed
+I3,I,France,Iraq,,,scheduled
+I4,I,Norway,Senegal,,,scheduled
+I5,I,Norway,France,,,scheduled
+I6,I,Senegal,Iraq,,,scheduled
+J1,J,Argentina,Algeria,3,0,completed
+J2,J,Austria,Jordan,3,1,completed
+J3,J,Argentina,Austria,,,scheduled
+J4,J,Jordan,Algeria,,,scheduled
+J5,J,Jordan,Argentina,,,scheduled
+J6,J,Algeria,Austria,,,scheduled
+K1,K,Portugal,DR Congo,1,1,completed
+K2,K,Uzbekistan,Colombia,1,3,completed
+K3,K,Portugal,Uzbekistan,,,scheduled
+K4,K,Colombia,DR Congo,,,scheduled
+K5,K,Colombia,Portugal,,,scheduled
+K6,K,DR Congo,Uzbekistan,,,scheduled
+L1,L,England,Croatia,4,2,completed
+L2,L,Ghana,Panama,1,0,completed
+L3,L,England,Ghana,,,scheduled
+L4,L,Panama,Croatia,,,scheduled
+L5,L,Panama,England,,,scheduled
+L6,L,Croatia,Ghana,,,scheduled
