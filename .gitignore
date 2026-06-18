@@ -1,0 +1,7 @@
+.pytest_cache/
+.playwright-mcp/
+__pycache__/
+*.py[cod]
+.venv/
+data/cache/
+

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>世界杯投注分析助手</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5f6b7a;
+      --line: #d8dee8;
+      --accent: #0b6bcb;
+      --surface: #f7f9fc;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.55;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-size: 34px;
+      margin: 0 0 12px;
+      letter-spacing: 0;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 28px 0 10px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 12px;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 760px;
+    }
+    .notice {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    code {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 2px 5px;
+      font-size: 0.95em;
+    }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 22px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>世界杯投注分析助手</h1>
+      <p class="lead">一个 Python Streamlit MVP，用于辅助分析世界杯小组赛普通胜平负、让球胜平负、EV、市场概率和出线情景。</p>
+    </header>
+
+    <section class="notice">
+      <p><strong>部署说明：</strong>GitHub Pages 只能托管静态网页，不能直接运行 Streamlit 后端。因此这个页面是项目介绍页，不是完整交互版应用。</p>
+      <p>完整应用需要在本地、Streamlit Community Cloud、Render、Railway 等支持 Python 服务的平台运行。</p>
+    </section>
+
+    <section>
+      <h2>当前能力</h2>
+      <ul>
+        <li>本地 CSV 数据源和中国体彩实时数据 provider 架构。</li>
+        <li>手动录入中国体彩风格赔率。</li>
+        <li>普通胜平负和让球胜平负市场分析。</li>
+        <li>无水概率、模型概率、edge、EV 和风险判断。</li>
+        <li>本地小组匹配时显示出线情景；无法匹配时仍可做市场分析。</li>
+        <li>生成中文比赛分析报告。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>本地运行</h2>
+      <pre><code>python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+PYTHONPATH=src streamlit run src/app/streamlit_app.py</code></pre>
+    </section>
+
+    <section>
+      <h2>测试</h2>
+      <pre><code>pytest</code></pre>
+    </section>
+  </main>
+</body>
+</html>

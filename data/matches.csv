@@ -1,0 +1,7 @@
+match_id,group,home,away,home_score,away_score,status
+F1,F,Netherlands,Japan,2,2,completed
+F2,F,Sweden,Tunisia,5,1,completed
+F3,F,Netherlands,Sweden,,,scheduled
+F4,F,Tunisia,Japan,,,scheduled
+F5,F,Tunisia,Netherlands,,,scheduled
+F6,F,Japan,Sweden,,,scheduled
